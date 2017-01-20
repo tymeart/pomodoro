@@ -1,0 +1,21 @@
+{
+  "name": "pomodoro",
+  "version": "1.0.0",
+  "description": "A pomodoro timer with adjustable intervals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pomodoro",
+    "timer",
+    "clock"
+  ],
+  "author": "tymeart",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}

@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
+  font-family: monospace, sans-serif;
+}
+
+.countdown {
+  width: 400px;
+  height: 250px;
+  text-align: center;
+}
+
+.timer {
+  padding: 60px;
+  font-size: 4.5em;
+}
+
+.start-stop {
+  width: 80%;
+  font-size: 1.7em;
+}
+
+.interval-lengths {
+  width: 400px * 0.8;
+  display: flex;
+  justify-content: space-around;
+}
+
+.session-length, .break-length {
+  font-size: 2.5em;
+}
+
+.buttons {
+  font-size: 2em;
+}
