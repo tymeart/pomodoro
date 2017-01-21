@@ -1,5 +1,7 @@
 body {
-  margin: 0; }
+  margin: 0;
+  font-family: sans-serif;
+  color: #1c2833; }
 
 .container {
   height: 100vh;
@@ -7,22 +9,26 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: lightblue;
-  font-family: monospace, sans-serif; }
+  background-color: #FFDC00; }
 
 .countdown {
   width: 400px;
   height: 250px;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
   text-align: center; }
 
 .timer {
-  padding: 60px;
+  padding: 50px;
+  padding-bottom: 80px;
   font-size: 4.5em; }
+
+.timer, .minutes {
+  font-family: monospace, sans-serif; }
 
 .start-stop {
   width: 80%;
-  font-size: 1.7em; }
+  font-size: 1.7em;
+  text-transform: lowercase; }
 
 .interval-lengths {
   width: 320px;
@@ -32,15 +38,16 @@ body {
 
 .session, .break {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  align-items: center; }
 
 .session-length, .break-length {
   font-size: 1em; }
   .session-length .minutes, .break-length .minutes {
     font-size: 2.5em; }
 
-.buttons {
-  font-size: 2em;
+.interval-lengths button {
+  font-size: 1.2em;
   margin: 0 auto; }
 
 /*# sourceMappingURL=main.css.map */
