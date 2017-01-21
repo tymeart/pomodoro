@@ -15,6 +15,7 @@ body {
 .countdown {
   width: 400px;
   height: 250px;
+  margin-bottom: 35px;
   text-align: center;
 }
 
@@ -30,14 +31,25 @@ body {
 
 .interval-lengths {
   width: 400px * 0.8;
+  padding: 30px;
   display: flex;
   justify-content: space-around;
 }
 
+.session, .break {
+  display: flex;
+  flex-direction: column;
+}
+
 .session-length, .break-length {
-  font-size: 2.5em;
+  font-size: 1em;
+
+  .minutes {
+    font-size: 2.5em;
+  }
 }
 
 .buttons {
   font-size: 2em;
+  margin: 0 auto;
 }
