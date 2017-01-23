@@ -1,4 +1,4 @@
-var intervalLength = 25;
+var workLength = 25;
 var breakLength = 5;
 var timer = 25;
 
