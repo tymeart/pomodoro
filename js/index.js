@@ -9,20 +9,19 @@ var breakLengthMinutes = document.querySelector('.break-length .minutes');
 
 adjustmentButtons.forEach(function(button) {
   button.addEventListener('click', function() {
-    var btnVal = this.innerText;
-    var intervalCategory = this.className;
+    var intervalCategory = this.id;
 
     // minutes have to > 0 though...
-    if (intervalCategory === 'work' && btnVal === '+') {
+    if (intervalCategory === 'work-plus') {
       workLength++;
       workLengthMinutes.innerText = workLength;
-    } else if (intervalCategory === 'work' && btnVal === '-') {
+    } else if (intervalCategory === 'work-minus' && workLength > 1) {
       workLength--;
       workLengthMinutes.innerText = workLength;
-    } else if (intervalCategory === 'break' && btnVal === '+') {
+    } else if (intervalCategory === 'break-plus') {
       breakLength++;
       breakLengthMinutes.innerText = breakLength;
-    } else if (intervalCategory === 'break' && btnVal === '-') {
+    } else if (intervalCategory === 'break-minus' && breakLength > 1) {
       breakLength--;
       breakLengthMinutes.innerText = breakLength;
     }
