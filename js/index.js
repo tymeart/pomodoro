@@ -3,7 +3,7 @@ var breakLength = 5;
 var timer = 25;
 
 var adjustmentButtons = document.querySelectorAll('.buttons button');
-var startStopButton = document.getElementById('start-stop');
+var startButton = document.getElementById('start');
 var workLengthMinutes = document.querySelector('.session-length .minutes');
 var breakLengthMinutes = document.querySelector('.break-length .minutes');
 
@@ -11,7 +11,6 @@ adjustmentButtons.forEach(function(button) {
   button.addEventListener('click', function() {
     var intervalCategory = this.id;
 
-    // minutes have to > 0 though...
     if (intervalCategory === 'work-plus') {
       workLength++;
       workLengthMinutes.innerText = workLength;
@@ -26,4 +25,10 @@ adjustmentButtons.forEach(function(button) {
       breakLengthMinutes.innerText = breakLength;
     }
   });
+});
+
+// when startStopButton is clicked, timer starts counting down -- how to do so each minute is accurate
+startButton.addEventListener('click', function() {
+  this.innerText = 'Pause';
+
 });

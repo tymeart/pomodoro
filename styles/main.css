@@ -34,7 +34,7 @@ body {
 .timer, .minutes {
   font-family: monospace, sans-serif; }
 
-#start-stop {
+#start {
   width: 80%;
   font-size: 1.7em;
   text-transform: lowercase; }
