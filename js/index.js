@@ -28,7 +28,13 @@ adjustmentButtons.forEach(function(button) {
 });
 
 startButton.addEventListener('click', function() {
-  this.innerText = 'Pause';
+  var intervalID = setInterval(function() {
+    timer.textContent = workLength;
+    workLength--;
+    if (workLength === 0) {
+      clearInterval(intervalID);
+    }
+  }, 1000);
 
   if (this.textContent === 'Start') {
     this.textContent = 'Pause';
