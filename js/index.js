@@ -13,16 +13,16 @@ adjustmentButtons.forEach(function(button) {
 
     if (intervalCategory === 'work-plus') {
       workLength++;
-      workLengthMinutes.innerText = workLength;
+      workLengthMinutes.textContent = workLength;
     } else if (intervalCategory === 'work-minus' && workLength > 1) {
       workLength--;
-      workLengthMinutes.innerText = workLength;
+      workLengthMinutes.textContent = workLength;
     } else if (intervalCategory === 'break-plus') {
       breakLength++;
-      breakLengthMinutes.innerText = breakLength;
+      breakLengthMinutes.textContent = breakLength;
     } else if (intervalCategory === 'break-minus' && breakLength > 1) {
       breakLength--;
-      breakLengthMinutes.innerText = breakLength;
+      breakLengthMinutes.textContent = breakLength;
     }
   });
 });
