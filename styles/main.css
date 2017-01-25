@@ -26,12 +26,13 @@ body {
   margin-bottom: 20px;
   text-align: center; }
 
-.timer {
+#timer {
   padding: 50px;
   padding-bottom: 80px;
-  font-size: 4.5em; }
+  font-size: 4.5em;
+  font-family: monospace, sans-serif; }
 
-.timer, .minutes {
+.minutes {
   font-family: monospace, sans-serif; }
 
 #start {

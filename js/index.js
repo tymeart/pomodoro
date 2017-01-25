@@ -1,11 +1,11 @@
 var workLength = 25;
 var breakLength = 5;
-var timer = 25;
 
 var adjustmentButtons = document.querySelectorAll('.buttons button');
 var startButton = document.getElementById('start');
 var workLengthMinutes = document.querySelector('.session-length .minutes');
 var breakLengthMinutes = document.querySelector('.break-length .minutes');
+var timer = document.getElementById('timer');
 
 adjustmentButtons.forEach(function(button) {
   button.addEventListener('click', function() {
