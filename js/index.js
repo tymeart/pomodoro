@@ -27,8 +27,14 @@ adjustmentButtons.forEach(function(button) {
   });
 });
 
-// when startStopButton is clicked, timer starts counting down -- how to do so each minute is accurate
 startButton.addEventListener('click', function() {
   this.innerText = 'Pause';
 
-});
+  if (this.textContent === 'Start') {
+    this.textContent = 'Pause';
+  } else {
+    this.textContent = 'Start';
+  }
+
+  }
+);
