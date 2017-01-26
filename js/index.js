@@ -29,11 +29,10 @@ adjustmentButtons.forEach(function(button) {
   });
 });
 
-// link work and break lengths to timer
-
 var paused = true;
 var intervalID;
-startButton.addEventListener('click', function() {
+
+function startWork() {
   clearInterval(intervalID);
   intervalID = setInterval(function() {
     if (!paused) {
@@ -41,13 +40,27 @@ startButton.addEventListener('click', function() {
       timer.textContent = workLength;
     }
     if (workLength === 0) {
-      clearInterval(intervalID);
+      startBreak();
     }
   }, 1000);
+}
 
-  // link pause to timer
+function startBreak() {
+  clearInterval(intervalID);
+  intervalID = setInterval(function() {
+    if (!paused) {
+      timer.textContent = breakLength;
+      breakLength--;
+    }
+    if (breakLength === 0) {
+      startWork();
+    }
+  }, 1000);
+}
 
-  // add and remove class instead? and then change paused when button with each class is clicked
+startButton.addEventListener('click', function() {
+  startWork();
+
   if (this.textContent === 'Start') {
     this.textContent = 'Pause';
     paused = false;
