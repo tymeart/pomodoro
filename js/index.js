@@ -38,9 +38,8 @@ function startWork() {
     if (!paused) {
       timer.textContent = workLength;
       workLength--;
-      timer.textContent = workLength;
     }
-    if (workLength === 0) {
+    if (workLength < 0) {
       workLength = workLengthMinutes.textContent;
       startBreak();
     }
@@ -53,9 +52,8 @@ function startBreak() {
     if (!paused) {
       timer.textContent = breakLength;
       breakLength--;
-      timer.textContent = breakLength;
     }
-    if (breakLength === 0) {
+    if (breakLength < 0) {
       breakLength = breakLengthMinutes.textContent;
       startWork();
     }
