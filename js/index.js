@@ -36,10 +36,12 @@ function startWork() {
   clearInterval(intervalID);
   intervalID = setInterval(function() {
     if (!paused) {
+      timer.textContent = workLength;
       workLength--;
       timer.textContent = workLength;
     }
     if (workLength === 0) {
+      workLength = workLengthMinutes.textContent;
       startBreak();
     }
   }, 1000);
@@ -51,8 +53,10 @@ function startBreak() {
     if (!paused) {
       timer.textContent = breakLength;
       breakLength--;
+      timer.textContent = breakLength;
     }
     if (breakLength === 0) {
+      breakLength = breakLengthMinutes.textContent;
       startWork();
     }
   }, 1000);
