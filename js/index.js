@@ -30,8 +30,10 @@ adjustmentButtons.forEach(function(button) {
 // link work and break lengths to timer
 
 var paused = true;
+var intervalID;
 startButton.addEventListener('click', function() {
-  var intervalID = setInterval(function() {
+  clearInterval(intervalID);
+  intervalID = setInterval(function() {
     if (!paused) {
       workLength--;
       timer.textContent = workLength;
