@@ -45,6 +45,11 @@ body {
 //   position: absolute;
 // }
 
+canvas {
+  width: 220px;
+  height: 220px;
+}
+
 #timer {
   font: {
     size: 4.5em;
