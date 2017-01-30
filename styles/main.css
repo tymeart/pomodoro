@@ -31,13 +31,6 @@ body {
   position: relative;
   top: -40px; }
 
-.clock {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.6);
-  position: absolute; }
-
 #timer {
   font-size: 4.5em;
   font-family: monospace, sans-serif;

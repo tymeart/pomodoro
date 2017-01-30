@@ -31,6 +31,8 @@ adjustmentButtons.forEach(function(button) {
 
 var paused = true;
 var intervalID;
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
 
 function startWork() {
   clearInterval(intervalID);
