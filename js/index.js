@@ -29,11 +29,19 @@ adjustmentButtons.forEach(function(button) {
   });
 });
 
+function draw() {
+  var canvas = document.getElementById('canvas');
+  if (canvas.getContext) {
+    var context = canvas.getContext('2d');
+    // refer to Drawing shapes with canvas on MDN
+    // x, y, radius, startAngle, endAngle
+    context.arc(110, 110, 110, 0, (Math.PI/180)*3);
+    context.stroke();
+  }
+}
+
 var paused = true;
 var intervalID;
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
-
 function startWork() {
   clearInterval(intervalID);
   intervalID = setInterval(function() {
@@ -63,7 +71,8 @@ function startBreak() {
 }
 
 startButton.addEventListener('click', function() {
-  startWork();
+  draw();
+  // startWork();
 
   if (this.textContent === 'Start') {
     this.textContent = 'Pause';
