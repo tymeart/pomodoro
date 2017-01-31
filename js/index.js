@@ -34,8 +34,11 @@ function draw() {
   if (canvas.getContext) {
     var context = canvas.getContext('2d');
     // refer to Drawing shapes with canvas on MDN
-    // x, y, radius, startAngle, endAngle
-    context.arc(110, 110, 110, 0, (Math.PI/180)*3);
+    var startAngle = (Math.PI/180)*270;
+    var endAngle = 0;
+
+    context.beginPath();
+    context.arc(110, 110, 110, startAngle, endAngle, false);
     context.stroke();
   }
 }
