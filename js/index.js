@@ -29,19 +29,33 @@ adjustmentButtons.forEach(function(button) {
   });
 });
 
-function draw() {
-  var canvas = document.getElementById('canvas');
-  if (canvas.getContext) {
-    var context = canvas.getContext('2d');
-    // refer to Drawing shapes with canvas on MDN
-    var startAngle = (Math.PI/180)*270;
-    var endAngle = 0;
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var startAngle = Math.PI * 1.5;
+var endAngle = Math.PI * 2;
+var currentEndAngle;
+var startTime = (new Date()).getTime();
+var timeDifference;
 
+context.lineWidth = 10;
+context.strokeStyle = '#fff';
+
+function draw() {
+    timeDifference = (new Date()).getTime() - startTime;
+    timeDifference /= 60000;
+
+    currentEndAngle = startAngle + endAngle * timeDifference;
+
+    // context.clearRect(0, 0, canvas.width, canvas.height);
     context.beginPath();
-    context.arc(110, 110, 110, startAngle, endAngle, false);
+    context.arc(canvas.width/2, canvas.height/2, 110, startAngle, currentEndAngle);
     context.stroke();
-  }
 }
+
+var requestAnimationFrame = window.requestAnimationFrame ||
+                            window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame ||
+                            window.msRequestAnimationFrame;
 
 var paused = true;
 var intervalID;
@@ -74,7 +88,7 @@ function startBreak() {
 }
 
 startButton.addEventListener('click', function() {
-  draw();
+  requestAnimationFrame(draw, 120);
   // startWork();
 
   if (this.textContent === 'Start') {
