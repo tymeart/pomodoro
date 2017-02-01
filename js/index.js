@@ -46,16 +46,15 @@ function draw() {
 
     currentEndAngle = startAngle + endAngle * timeDifference;
 
-    // context.clearRect(0, 0, canvas.width, canvas.height);
     context.beginPath();
     context.arc(canvas.width/2, canvas.height/2, 110, startAngle, currentEndAngle);
     context.stroke();
-}
 
-var requestAnimationFrame = window.requestAnimationFrame ||
-                            window.mozRequestAnimationFrame ||
-                            window.webkitRequestAnimationFrame ||
-                            window.msRequestAnimationFrame;
+    if (timeDifference >= 1) {
+      startTime = new Date().getTime();
+      context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+}
 
 var paused = true;
 var intervalID;
