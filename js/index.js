@@ -57,10 +57,11 @@ function draw() {
 }
 
 var paused = true;
-var intervalID;
+var timerInterval;
+var animInterval;
 function startWork() {
-  clearInterval(intervalID);
-  intervalID = setInterval(function() {
+  clearInterval(timerInterval);
+  timerInterval = setInterval(function() {
     if (!paused) {
       timer.textContent = workLength;
       workLength--;
@@ -73,8 +74,8 @@ function startWork() {
 }
 
 function startBreak() {
-  clearInterval(intervalID);
-  intervalID = setInterval(function() {
+  clearInterval(timerInterval);
+  timerInterval = setInterval(function() {
     if (!paused) {
       timer.textContent = breakLength;
       breakLength--;
@@ -87,8 +88,8 @@ function startBreak() {
 }
 
 startButton.addEventListener('click', function() {
-  requestAnimationFrame(draw, 120);
-  // startWork();
+  startWork();
+  // setInterval(draw, 120);
 
   if (this.textContent === 'Start') {
     this.textContent = 'Pause';
