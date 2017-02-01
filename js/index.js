@@ -31,17 +31,17 @@ adjustmentButtons.forEach(function(button) {
 
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
-var startAngle = Math.PI * 1.5;
-var endAngle = Math.PI * 2;
+var startAngle = -Math.PI/2;
+var endAngle = Math.PI*2;
 var currentEndAngle;
-var startTime = (new Date()).getTime();
+var startTime = new Date().getTime();
 var timeDifference;
 
 context.lineWidth = 10;
 context.strokeStyle = '#fff';
 
 function draw() {
-    timeDifference = (new Date()).getTime() - startTime;
+    timeDifference = new Date().getTime() - startTime;
     timeDifference /= 60000;
 
     currentEndAngle = startAngle + endAngle * timeDifference;
