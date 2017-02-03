@@ -41,28 +41,33 @@ context.lineWidth = 10;
 context.strokeStyle = '#fff';
 
 function draw() {
-    timeDifference = new Date().getTime() - startTime;
-    timeDifference /= 60000;
-
-    currentEndAngle = startAngle + endAngle * timeDifference;
-
-    context.beginPath();
-    context.arc(canvas.width/2, canvas.height/2, 110, startAngle, currentEndAngle);
-    context.stroke();
-
-    if (timeDifference >= 1) {
+    if (paused) {
       startTime = new Date().getTime();
-      context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    if (!paused) {
+      timeDifference = new Date().getTime() - startTime;
+      timeDifference /= 60000;
+      currentEndAngle = startAngle + endAngle * timeDifference;
+
+      context.beginPath();
+      context.arc(canvas.width/2, canvas.height/2, 110, startAngle, currentEndAngle);
+      context.stroke();
+
+      if (timeDifference >= 1) {
+        startTime = new Date().getTime();
+        context.clearRect(0, 0, canvas.width, canvas.height);
+      }
     }
 }
 
 var paused = true;
 var timerInterval;
-var animInterval;
 function startWork() {
   clearInterval(timerInterval);
   timerInterval = setInterval(function() {
     if (!paused) {
+      // there's a delay when timer starts the first time
       timer.textContent = workLength;
       workLength--;
     }
@@ -89,7 +94,6 @@ function startBreak() {
 
 startButton.addEventListener('click', function() {
   startWork();
-  // setInterval(draw, 120);
 
   if (this.textContent === 'Start') {
     this.textContent = 'Pause';
