@@ -63,33 +63,32 @@ function draw() {
 
 var paused = true;
 var timerInterval;
+
+function updateDisplay(sessionType) {
+  if (!paused) {
+    timer.textContent = sessionType;
+    sessionType--;
+  }
+  if (sessionType < 0) {
+    sessionType = `${sessionType}Minutes.textContent`;
+    if (sessionType === workLength) {
+      startBreak();
+    } else if (sessionType === breakLength) {
+      startWork();
+    }
+  }
+}
+
+// write function that creates the interval so you can pass parameters into the callback
+
 function startWork() {
   clearInterval(timerInterval);
-  timerInterval = setInterval(function() {
-    if (!paused) {
-      // there's a delay when timer starts the first time
-      timer.textContent = workLength;
-      workLength--;
-    }
-    if (workLength < 0) {
-      workLength = workLengthMinutes.textContent;
-      startBreak();
-    }
-  }, 1000);
+  timerInterval = setInterval(updateDisplay, 1000);
 }
 
 function startBreak() {
   clearInterval(timerInterval);
-  timerInterval = setInterval(function() {
-    if (!paused) {
-      timer.textContent = breakLength;
-      breakLength--;
-    }
-    if (breakLength < 0) {
-      breakLength = breakLengthMinutes.textContent;
-      startWork();
-    }
-  }, 1000);
+  timerInterval = setInterval(updateDisplay, 1000);
 }
 
 startButton.addEventListener('click', function() {
