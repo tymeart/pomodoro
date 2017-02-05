@@ -88,17 +88,19 @@ function updateBreakDisplay() {
 
 function startWork() {
   clearInterval(timerInterval);
-  updateWorkDisplay();
-  timerInterval = setInterval(updateWorkDisplay, 1000);
+  timerInterval = setInterval(updateWorkDisplay, 60000);
 }
 
 function startBreak() {
   clearInterval(timerInterval);
-  updateBreakDisplay();
-  timerInterval = setInterval(updateBreakDisplay, 1000);
+  timerInterval = setInterval(updateBreakDisplay, 60000);
 }
 
 startButton.addEventListener('click', function() {
+  setTimeout(function(){
+    workLength--;
+    timer.textContent = workLength;
+  }, 60000);
   startWork();
 
   if (this.textContent === 'Start') {
