@@ -64,36 +64,38 @@ function draw() {
 var paused = true;
 var timerInterval;
 
-function updateDisplay(sessionType) {
+function updateWorkDisplay() {
   if (!paused) {
-    timer.textContent = sessionType;
-    sessionType--;
+    timer.textContent = workLength;
+    workLength--;
   }
-  if (sessionType < 0) {
-    if (sessionType === workLength) {
+  if (workLength < 0) {
       workLength = workLengthMinutes.textContent;
       startBreak();
-    } else if (sessionType === breakLength) {
-      breakLength = breakLengthMinutes.textContent;
-      startWork();
-    }
   }
 }
 
-function createInterval(fn, param) {
-  timerInterval = setInterval(function() {fn(param);}, 1000);
+function updateBreakDisplay() {
+  if (!paused) {
+    timer.textContent = breakLength;
+    breakLength--;
+  }
+  if (breakLength < 0) {
+      breakLength = breakLengthMinutes.textContent;
+      startWork();
+  }
 }
 
 function startWork() {
   clearInterval(timerInterval);
-  updateDisplay(workLength);
-  createInterval(updateDisplay, workLength);
+  updateWorkDisplay();
+  timerInterval = setInterval(updateWorkDisplay, 1000);
 }
 
 function startBreak() {
   clearInterval(timerInterval);
-  updateDisplay(breakLength);
-  createInterval(updateDisplay, breakLength);
+  updateBreakDisplay();
+  timerInterval = setInterval(updateBreakDisplay, 1000);
 }
 
 startButton.addEventListener('click', function() {
