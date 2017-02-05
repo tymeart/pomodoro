@@ -80,16 +80,20 @@ function updateDisplay(sessionType) {
   }
 }
 
-// write function that creates the interval so you can pass parameters into the callback
+function createInterval(fn, param) {
+  timerInterval = setInterval(function() {fn(param);}, 1000);
+}
 
 function startWork() {
   clearInterval(timerInterval);
-  timerInterval = setInterval(updateDisplay, 1000);
+  updateDisplay(workLength);
+  createInterval(updateDisplay, workLength);
 }
 
 function startBreak() {
   clearInterval(timerInterval);
-  timerInterval = setInterval(updateDisplay, 1000);
+  updateDisplay(breakLength);
+  createInterval(updateDisplay, breakLength);
 }
 
 startButton.addEventListener('click', function() {
