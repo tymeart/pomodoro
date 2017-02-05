@@ -70,10 +70,11 @@ function updateDisplay(sessionType) {
     sessionType--;
   }
   if (sessionType < 0) {
-    sessionType = `${sessionType}Minutes.textContent`;
     if (sessionType === workLength) {
+      workLength = workLengthMinutes.textContent;
       startBreak();
     } else if (sessionType === breakLength) {
+      breakLength = breakLengthMinutes.textContent;
       startWork();
     }
   }
