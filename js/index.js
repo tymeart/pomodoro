@@ -113,3 +113,16 @@ startButton.addEventListener('click', function() {
 
 }
 );
+
+// start with 25 minutes and 00 seconds
+var minutes = '25';
+var seconds = '00';
+// set minutes = workLength.toString()
+// decrement minutes by 1 when seconds === '00', set seconds to 59
+// decrement seconds every 1000ms
+// update timer display with interpolated values -> timer.textContent = minutes + ':' + seconds
+  // make sure minutes and seconds stay double digits before interpolating
+  // if minutes or seconds < 10, add '0' in front
+
+
+// alert when switching between work and break sessions
