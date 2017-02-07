@@ -31,44 +31,65 @@ adjustmentButtons.forEach(function(button) {
 
 var paused = true;
 var timerInterval;
+var minutes = 25;
+var seconds = 0;
 
-function updateWorkDisplay() {
-  if (!paused) {
-    timer.textContent = workLength;
-    workLength--;
+function updateTimerDisplay() {
+  if (minutes < 10) {
+    minutes = '0' + minutes;
   }
-  if (workLength < 0) {
-      workLength = adjustableWorkLength.textContent;
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
+  timer.textContent = minutes + ':' + seconds;
+}
+
+function runWorkSession() {
+  if (!paused) {
+    minutes = workLength;
+    minutes--;
+    if (minutes > 0 && seconds === 0) {
+      seconds = 59;
+    } else {
+      seconds--;
+    }
+    updateTimerDisplay();
+  }
+  if (minutes === 0 && seconds === 0) {
+      updateTimerDisplay();
       startBreak();
   }
 }
 
-function updateBreakDisplay() {
+function runBreakSession() {
   if (!paused) {
-    timer.textContent = breakLength;
-    breakLength--;
+    minutes = breakLength;
+    if (seconds === 0) {
+      minutes--;
+      seconds = 59;
+    } else {
+      seconds--;
+    }
+    updateTimerDisplay();
   }
-  if (breakLength < 0) {
+  if (minutes < 0) {
       breakLength = adjustableBreakLength.textContent;
+
       startWork();
   }
 }
 
 function startWork() {
   clearInterval(timerInterval);
-  timerInterval = setInterval(updateWorkDisplay, 60000);
+  timerInterval = setInterval(runWorkSession, 1000);
 }
 
 function startBreak() {
   clearInterval(timerInterval);
-  timerInterval = setInterval(updateBreakDisplay, 60000);
+  timerInterval = setInterval(runBreakSession, 1000);
 }
 
 startButton.addEventListener('click', function() {
-  setTimeout(function(){
-    workLength--;
-    timer.textContent = workLength;
-  }, 60000);
   startWork();
 
   if (this.textContent === 'Start') {
@@ -83,8 +104,6 @@ startButton.addEventListener('click', function() {
 );
 
 // start with 25 minutes and 00 seconds
-var minutes = '25';
-var seconds = '00';
 // set minutes = workLength.toString()
 // decrement minutes by 1 when seconds === '00', set seconds to 59
 // decrement seconds every 1000ms
