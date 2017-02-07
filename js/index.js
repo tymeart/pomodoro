@@ -14,11 +14,11 @@ adjustmentButtons.forEach(function(button) {
     if (intervalCategory === 'work-plus') {
       workLength++;
       adjustableWorkLength.textContent = workLength;
-      timer.textContent = workLength;
+      timer.textContent = workLength + ':00';
     } else if (intervalCategory === 'work-minus' && workLength > 1) {
       workLength--;
       adjustableWorkLength.textContent = workLength;
-      timer.textContent = workLength;
+      timer.textContent = workLength + ':00';
     } else if (intervalCategory === 'break-plus') {
       breakLength++;
       adjustableBreakLength.textContent = breakLength;
