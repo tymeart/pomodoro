@@ -3,8 +3,8 @@ var breakLength = 5;
 
 var adjustmentButtons = document.querySelectorAll('.buttons button');
 var startButton = document.getElementById('start');
-var workLengthMinutes = document.querySelector('.session-length .minutes');
-var breakLengthMinutes = document.querySelector('.break-length .minutes');
+var adjustableWorkLength = document.querySelector('.session-length .minutes');
+var adjustableBreakLength = document.querySelector('.break-length .minutes');
 var timer = document.getElementById('timer');
 
 adjustmentButtons.forEach(function(button) {
@@ -13,18 +13,18 @@ adjustmentButtons.forEach(function(button) {
 
     if (intervalCategory === 'work-plus') {
       workLength++;
-      workLengthMinutes.textContent = workLength;
+      adjustableWorkLength.textContent = workLength;
       timer.textContent = workLength;
     } else if (intervalCategory === 'work-minus' && workLength > 1) {
       workLength--;
-      workLengthMinutes.textContent = workLength;
+      adjustableWorkLength.textContent = workLength;
       timer.textContent = workLength;
     } else if (intervalCategory === 'break-plus') {
       breakLength++;
-      breakLengthMinutes.textContent = breakLength;
+      adjustableBreakLength.textContent = breakLength;
     } else if (intervalCategory === 'break-minus' && breakLength > 1) {
       breakLength--;
-      breakLengthMinutes.textContent = breakLength;
+      adjustableBreakLength.textContent = breakLength;
     }
   });
 });
@@ -70,7 +70,7 @@ function updateWorkDisplay() {
     workLength--;
   }
   if (workLength < 0) {
-      workLength = workLengthMinutes.textContent;
+      workLength = adjustableWorkLength.textContent;
       startBreak();
   }
 }
@@ -81,7 +81,7 @@ function updateBreakDisplay() {
     breakLength--;
   }
   if (breakLength < 0) {
-      breakLength = breakLengthMinutes.textContent;
+      breakLength = adjustableBreakLength.textContent;
       startWork();
   }
 }
@@ -111,5 +111,5 @@ startButton.addEventListener('click', function() {
     paused = true;
   }
 
-  }
+}
 );
