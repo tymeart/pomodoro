@@ -29,38 +29,6 @@ adjustmentButtons.forEach(function(button) {
   });
 });
 
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
-var startAngle = -Math.PI/2;
-var endAngle = Math.PI*2;
-var currentEndAngle;
-var startTime = new Date().getTime();
-var timeDifference;
-
-context.lineWidth = 10;
-context.strokeStyle = '#fff';
-
-function draw() {
-    if (paused) {
-      startTime = new Date().getTime();
-    }
-
-    if (!paused) {
-      timeDifference = new Date().getTime() - startTime;
-      timeDifference /= 60000;
-      currentEndAngle = startAngle + endAngle * timeDifference;
-
-      context.beginPath();
-      context.arc(canvas.width/2, canvas.height/2, 110, startAngle, currentEndAngle);
-      context.stroke();
-
-      if (timeDifference >= 1) {
-        startTime = new Date().getTime();
-        context.clearRect(0, 0, canvas.width, canvas.height);
-      }
-    }
-}
-
 var paused = true;
 var timerInterval;
 
