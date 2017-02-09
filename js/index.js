@@ -35,7 +35,7 @@ var minutes = 25;
 var seconds = 0;
 
 function updateTimerDisplay() {
-  if (minutes < 10) {
+  if (minutes >= 0 && minutes < 10) {
     minutes = '0' + minutes;
   }
   if (seconds >= 0 && seconds < 10) {
@@ -55,14 +55,13 @@ function runWorkSession() {
     updateTimerDisplay();
   }
   if (minutes === 0 && seconds === 0) {
-      minutes = breakLength;
       startBreak();
   }
 }
 
 function runBreakSession() {
   if (!paused) {
-    if (seconds === 0) {
+    if (seconds === 0 || seconds === '00') {
       minutes--;
       seconds = 59;
     } else if (seconds > 0) {
@@ -71,18 +70,19 @@ function runBreakSession() {
     updateTimerDisplay();
   }
   if (minutes === 0 && seconds === 0) {
-      minutes = workLength;
       startWork();
   }
 }
 
 function startWork() {
   clearInterval(timerInterval);
+  minutes = workLength;
   timerInterval = setInterval(runWorkSession, 1000);
 }
 
 function startBreak() {
   clearInterval(timerInterval);
+  minutes = breakLength;
   timerInterval = setInterval(runBreakSession, 1000);
 }
 
