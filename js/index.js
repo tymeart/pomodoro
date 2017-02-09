@@ -35,10 +35,10 @@ var minutes = 25;
 var seconds = 0;
 
 function updateTimerDisplay() {
-  if (minutes >= 0 && minutes < 10) {
+  if (minutes[0] !== '0' && minutes < 10) {
     minutes = '0' + minutes;
   }
-  if (seconds >= 0 && seconds < 10) {
+  if (seconds[0] !== '0' && seconds < 10) {
     seconds = '0' + seconds;
   }
   timer.textContent = minutes + ':' + seconds;
@@ -100,13 +100,5 @@ startButton.addEventListener('click', function() {
 }
 );
 
-// start with 25 minutes and 00 seconds
-// set minutes = workLength.toString()
-// decrement minutes by 1 when seconds === '00', set seconds to 59
-// decrement seconds every 1000ms
-// update timer display with interpolated values -> timer.textContent = minutes + ':' + seconds
-  // make sure minutes and seconds stay double digits before interpolating
-  // if minutes or seconds < 10, add '0' in front
-
-
+// add 0 in front of minutes < 10 in timer display before timer starts
 // alert when switching between work and break sessions
