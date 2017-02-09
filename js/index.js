@@ -38,7 +38,7 @@ function updateTimerDisplay() {
   if (minutes < 10) {
     minutes = '0' + minutes;
   }
-  if (seconds < 10) {
+  if (seconds >= 0 && seconds < 10) {
     seconds = '0' + seconds;
   }
   timer.textContent = minutes + ':' + seconds;
@@ -46,35 +46,32 @@ function updateTimerDisplay() {
 
 function runWorkSession() {
   if (!paused) {
-    minutes = workLength;
-    minutes--;
-    if (minutes > 0 && seconds === 0) {
+    if (seconds === 0 || seconds === '00') {
+      minutes--;
       seconds = 59;
-    } else {
+    } else if (seconds > 0){
       seconds--;
     }
     updateTimerDisplay();
   }
   if (minutes === 0 && seconds === 0) {
-      updateTimerDisplay();
+      minutes = breakLength;
       startBreak();
   }
 }
 
 function runBreakSession() {
   if (!paused) {
-    minutes = breakLength;
     if (seconds === 0) {
       minutes--;
       seconds = 59;
-    } else {
+    } else if (seconds > 0) {
       seconds--;
     }
     updateTimerDisplay();
   }
-  if (minutes < 0) {
-      breakLength = adjustableBreakLength.textContent;
-
+  if (minutes === 0 && seconds === 0) {
+      minutes = workLength;
       startWork();
   }
 }
