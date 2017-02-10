@@ -54,7 +54,10 @@ function runWorkSession() {
     }
     updateTimerDisplay();
   }
-  if (minutes === 0 && seconds === 0) {
+  if (minutes === '00' && seconds === '00') {
+      // timer.textContent = '00:00'; // still skips 00:00!
+      // var c = updateTimerDisplay();
+      // console.log(c); // skips 00:00
       startBreak();
   }
 }
@@ -69,7 +72,8 @@ function runBreakSession() {
     }
     updateTimerDisplay();
   }
-  if (minutes === 0 && seconds === 0) {
+  if (minutes === '00' && seconds === '00') {
+      updateTimerDisplay();
       startWork();
   }
 }
@@ -77,12 +81,16 @@ function runBreakSession() {
 function startWork() {
   clearInterval(timerInterval);
   minutes = workLength;
+  seconds = 0;
+  updateTimerDisplay();
   timerInterval = setInterval(runWorkSession, 1000);
 }
 
 function startBreak() {
   clearInterval(timerInterval);
   minutes = breakLength;
+  seconds = 0;
+  updateTimerDisplay();
   timerInterval = setInterval(runBreakSession, 1000);
 }
 
@@ -101,4 +109,5 @@ startButton.addEventListener('click', function() {
 );
 
 // add 0 in front of minutes < 10 in timer display before timer starts
+// clicking pause resets timer?!
 // alert when switching between work and break sessions
