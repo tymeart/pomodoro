@@ -55,10 +55,8 @@ function runWorkSession() {
     updateTimerDisplay();
   }
   if (minutes === '00' && seconds === '00') {
-      // timer.textContent = '00:00'; // still skips 00:00!
-      // var c = updateTimerDisplay();
-      // console.log(c); // skips 00:00
-      startBreak();
+      updateTimerDisplay();
+      setTimeout(startBreak, 1000);
   }
 }
 
@@ -74,7 +72,7 @@ function runBreakSession() {
   }
   if (minutes === '00' && seconds === '00') {
       updateTimerDisplay();
-      startWork();
+      setTimeout(startWork, 1000);
   }
 }
 
