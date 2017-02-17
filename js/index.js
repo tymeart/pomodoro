@@ -36,23 +36,35 @@ adjustmentButtons.forEach(function(button) {
 });
 
 var paused = true;
+var onBreak = false;
 var timerInterval;
 var minutes = 25;
 var seconds = 0;
 
 function updateTimerDisplay() {
+  var str = '';
   if (minutes[0] !== '0' && minutes < 10) {
-    minutes = '0' + minutes;
+    str = '0' + minutes + ':';
+  } else {
+    str = minutes + ':';
   }
   if (seconds[0] !== '0' && seconds < 10) {
-    seconds = '0' + seconds;
+    str += '0' + seconds;
+  } else {
+    str += seconds;
   }
-  timer.textContent = minutes + ':' + seconds;
+  timer.textContent = str;
 }
 
-function runWorkSession() {
+function runSession() {
   if (!paused) {
-    if (seconds === 0 || seconds === '00') {
+    if (minutes === 0 && seconds === 0) {
+        if (onBreak) {
+          startWork();
+        } else {
+          startBreak();
+      }
+    } else if (seconds === 0) {
       minutes--;
       seconds = 59;
     } else if (seconds > 0){
