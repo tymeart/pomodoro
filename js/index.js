@@ -72,46 +72,27 @@ function runSession() {
     }
     updateTimerDisplay();
   }
-  if (minutes === '00' && seconds === '00') {
-      updateTimerDisplay();
-      setTimeout(startBreak, 1000);
-  }
-}
-
-function runBreakSession() {
-  if (!paused) {
-    if (seconds === 0 || seconds === '00') {
-      minutes--;
-      seconds = 59;
-    } else if (seconds > 0) {
-      seconds--;
-    }
-    updateTimerDisplay();
-  }
-  if (minutes === '00' && seconds === '00') {
-      updateTimerDisplay();
-      setTimeout(startWork, 1000);
-  }
 }
 
 function startWork() {
-  clearInterval(timerInterval);
+  onBreak = false;
   minutes = workLength;
   seconds = 0;
-  updateTimerDisplay();
-  timerInterval = setInterval(runWorkSession, 1000);
+  clearInterval(timerInterval);
+  timerInterval = setInterval(runSession, 1000);
 }
 
 function startBreak() {
-  clearInterval(timerInterval);
+  onBreak = true;
   minutes = breakLength;
   seconds = 0;
-  updateTimerDisplay();
-  timerInterval = setInterval(runBreakSession, 1000);
+  clearInterval(timerInterval);
+  timerInterval = setInterval(runSession, 1000);
 }
 
 startButton.addEventListener('click', function() {
-  startWork();
+  clearInterval(timerInterval);
+  timerInterval = setInterval(runSession, 1000);
 
   if (this.textContent === 'Start') {
     this.textContent = 'Pause';
@@ -124,6 +105,5 @@ startButton.addEventListener('click', function() {
 }
 );
 
-// add 0 in front of minutes < 10 in timer display before timer starts
-// clicking pause resets timer?!
+// check if changing adjustmentButtons resets timer
 // alert when switching between work and break sessions
