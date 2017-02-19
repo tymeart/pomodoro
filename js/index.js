@@ -76,6 +76,7 @@ function runSession() {
 
 function startWork() {
   onBreak = false;
+  alert('Work time!');
   minutes = workLength;
   seconds = 0;
   clearInterval(timerInterval);
@@ -84,6 +85,7 @@ function startWork() {
 
 function startBreak() {
   onBreak = true;
+  alert('Break time!');
   minutes = breakLength;
   seconds = 0;
   clearInterval(timerInterval);
@@ -105,5 +107,4 @@ startButton.addEventListener('click', function() {
 }
 );
 
-// check if changing adjustmentButtons resets timer
-// alert when switching between work and break sessions
+// adjusting workLength resets timer
