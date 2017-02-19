@@ -106,5 +106,3 @@ startButton.addEventListener('click', function() {
 
 }
 );
-
-// adjusting workLength resets timer
