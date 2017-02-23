@@ -1,6 +1,11 @@
 $yellow: #FAD764;
 $black: #1c2833;
 
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: sans-serif;
@@ -8,7 +13,8 @@ body {
 }
 
 .container {
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26,7 +32,7 @@ body {
 }
 
 .countdown {
-  width: 400px;
+  width: 350px;
   height: 250px;
   display: flex;
   justify-content: center;
@@ -58,17 +64,15 @@ body {
 
 #start {
   font-size: 1.7em;
-  position: absolute;
+  padding: 10px;
   text-transform: lowercase;
-  top: 110%;
-  left: 10%;
   width: 80%;
 }
 
 .interval-lengths {
-  width: 400px * 0.8;
-  margin-top: 30px;
-  padding: 30px;
+  width: 100%;
+  margin-top: 60px;
+  // padding: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -105,4 +109,11 @@ body {
   font-size: 1.2em;
   width: 30px;
   margin: 5px;
+}
+
+
+@media screen and (min-width: 630px) {
+  .interval-lengths {
+
+  }
 }
