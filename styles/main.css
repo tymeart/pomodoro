@@ -27,25 +27,18 @@ body {
 
 .countdown {
   width: 350px;
-  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: center;
   position: relative;
   top: -40px; }
-
-.clock {
-  width: 250px;
-  height: 250px;
-  position: relative; }
 
 #timer {
   font-size: 4.5em;
   font-family: monospace, sans-serif;
   line-height: 0;
-  padding: 50% 0; }
+  padding: 100px 0; }
 
 .minutes {
   font-family: monospace, sans-serif; }
@@ -53,7 +46,7 @@ body {
 #start {
   font-size: 1.7em;
   text-transform: lowercase;
-  width: 80%; }
+  width: 280px; }
 
 .interval-lengths {
   width: 100%;
