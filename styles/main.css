@@ -78,9 +78,10 @@ body {
   display: flex; }
 
 .interval-lengths button {
-  font-size: 1.2em;
-  width: 30px;
-  margin: 5px; }
+  font-size: 1.3em;
+  height: 40px;
+  width: 40px;
+  margin: 8px; }
 
 @media screen and (min-width: 550px) {
   .interval-lengths {
