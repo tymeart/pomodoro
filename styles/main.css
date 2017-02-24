@@ -30,9 +30,18 @@ button:hover {
 
 .countdown {
   width: 350px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
   top: -40px; }
@@ -78,6 +87,8 @@ button:hover {
     font-size: 2.5em; }
 
 .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex; }
 
 .interval-lengths button {
