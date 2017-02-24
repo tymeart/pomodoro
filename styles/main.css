@@ -29,7 +29,7 @@ button:hover {
   background-color: #FAD764; }
 
 .countdown {
-  width: 350px;
+  width: 320px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -58,7 +58,7 @@ button:hover {
 #start {
   font-size: 1.7em;
   text-transform: lowercase;
-  width: 280px; }
+  width: 256px; }
 
 .interval-lengths {
   width: 100%;
