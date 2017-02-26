@@ -5,8 +5,7 @@ html {
 body {
   margin: 0;
   font-family: sans-serif;
-  color: #1c2833;
-  min-width: 300px; }
+  color: #1c2833; }
 
 button:hover {
   cursor: pointer; }
@@ -100,7 +99,7 @@ button:hover {
 
 @media screen and (min-width: 550px) {
   .interval-lengths {
-    width: 60%;
+    width: 300px;
     margin-left: auto;
     margin-right: auto; } }
 
