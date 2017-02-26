@@ -33,36 +33,7 @@ for (var i = 0; i < adjustmentButtons.length; i++) {
       adjustableBreakLength.textContent = breakLength;
     }
   });
-
 }
-
-// adjustmentButtons.forEach(function(button) {
-//   button.addEventListener('click', function() {
-//     var intervalCategory = this.id;
-//
-//     if (intervalCategory === 'work-plus') {
-//       workLength++;
-//       adjustableWorkLength.textContent = workLength;
-//       minutes = workLength;
-//       seconds = 0;
-//       updateTimerDisplay();
-//       onBreak = false;
-//     } else if (intervalCategory === 'work-minus' && workLength > 1) {
-//       workLength--;
-//       adjustableWorkLength.textContent = workLength;
-//       minutes = workLength;
-//       seconds = 0;
-//       updateTimerDisplay();
-//       onBreak = false;
-//     } else if (intervalCategory === 'break-plus') {
-//       breakLength++;
-//       adjustableBreakLength.textContent = breakLength;
-//     } else if (intervalCategory === 'break-minus' && breakLength > 1) {
-//       breakLength--;
-//       adjustableBreakLength.textContent = breakLength;
-//     }
-//   });
-// });
 
 var paused = true;
 var onBreak = false;
